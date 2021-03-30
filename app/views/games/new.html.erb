@@ -1,0 +1,11 @@
+<p class="letters">
+  <% @letters.each do |letter| %>
+    <%= letter %>
+  <% end %>
+</p>
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input required="true" type="text" name="word" placeholder="guess a word!">
+  <input type="submit" value="guess">
+  <input id="letters" name="letters" type="hidden" value="<%= @letters.join(',') %>" />
+</form>
